@@ -1,0 +1,28 @@
+.slider{
+    height: 300px;
+    width: 1535px;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.slider-box img{
+    height: 200px;
+}
+
+.info-box p{
+    font-size: 40px;
+    color: #000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.info-box button{
+    padding: .5rem 3rem;
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
