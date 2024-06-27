@@ -1,12 +1,13 @@
 import React from 'react'
-import Logos from './Logos'
+import Navbar from './Navbar'
+
 
 const Header = () => {
   return (
-    <header className='h-16 shadow-md'>
+    <header className='h-16 shadow-2xl'>
       <div className='container mx auto'>
         <div className=''>
-          <Logos w={100} h={60}/>
+          <Navbar w={100} h={60}/>
         </div>
       </div>
     </header>
