@@ -4,9 +4,9 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const Slider = () => {
-    let images = [
-        { img: "https://clipground.com/images/smart-watch-png-8.png" },
+    const images = [
         { img: "https://www.pngmart.com/files/13/Smartwatch-PNG-Image.png" },
+        { img: "https://clipground.com/images/smart-watch-png-8.png" },
         { img: "https://www.pngmart.com/files/13/Smartwatch-PNG-Free-Download.png" }
     ];
 
@@ -28,7 +28,7 @@ const Slider = () => {
                     <button>View Products</button>
                 </div>
                 <div className='slider-box'>
-                    <img src={images[count].img} alt="Product" />
+                    <img src={images[count].img} alt="Product" className='slider-image' />
                 </div>
                 <ArrowBackIosIcon
                     className='arrow-icon'

@@ -13,7 +13,7 @@ const Navbar = ({ onSearch }) => {
     <div>
       <nav className="navbar bg-indigo-500 shadow-md px-4 py-2 rounded-md flex justify-between items-center">
         <div>
-          <a href="#" className="text-2xl font-bold text-gray-800 hover:text-gray-600 transition-colors">
+          <a href="#" className="text-2xl font-bold text-black">
             Time-Gallery⌚
           </a>
         </div>
