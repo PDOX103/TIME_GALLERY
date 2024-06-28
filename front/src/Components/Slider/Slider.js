@@ -6,8 +6,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 const Slider = () => {
     const images = [
         { img: "https://www.pngmart.com/files/13/Smartwatch-PNG-Image.png" },
-        { img: "https://clipground.com/images/smart-watch-png-8.png" },
-        { img: "https://www.pngmart.com/files/13/Smartwatch-PNG-Free-Download.png" }
+        { img: "https://clipground.com/images/smart-watch-png-8.png" } 
     ];
 
     const [count, setCount] = useState(0);
