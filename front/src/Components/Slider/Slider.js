@@ -10,25 +10,25 @@ const Slider = () => {
         { img: "https://www.pngmart.com/files/13/Smartwatch-PNG-Free-Download.png" }
     ];
 
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [count, setCount] = useState(0);
 
     const previous = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+        setCount((prevCount) => (prevCount === 0 ? images.length - 1 : prevCount - 1));
     };
 
     const next = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+        setCount((prevCount) => (prevCount === images.length - 1 ? 0 : prevCount + 1));
     };
 
     return (
         <div className='slider-container'>
             <div className='slider'>
                 <div className='info-box'>
-                    <p>YOUR PRODUCTS<br />ARE GREAT</p>
+                    <p>WE PROVIDE<br />AUTHENTIC PRODUCTS</p>
                     <button>View Products</button>
                 </div>
                 <div className='slider-box'>
-                    <img src={images[currentIndex].img} alt="Product" />
+                    <img src={images[count].img} alt="Product" />
                 </div>
                 <ArrowBackIosIcon
                     className='arrow-icon'

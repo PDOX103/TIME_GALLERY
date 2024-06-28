@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Navbar = () => {
+const Navbar = ({ onSearch }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearchChange = (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    onSearch(query);
+  };
+
   return (
     <div>
       <nav className="navbar bg-indigo-500 shadow-md px-4 py-2 rounded-md flex justify-between items-center">
@@ -13,6 +21,8 @@ const Navbar = () => {
           <div className="relative flex items-center">
             <input
               type="text"
+              value={searchQuery}
+              onChange={handleSearchChange}
               placeholder="Search"
               className="input input-bordered w-24 md:w-64 lg:w-80 pl-8"
             />
@@ -33,7 +43,7 @@ const Navbar = () => {
           </div>
           <div className="relative">
             <button className="btn btn-ghost btn-circle">
-              <img src='./front/images/shopping-cart.png'/>
+              <img src='https://as1.ftcdn.net/v2/jpg/05/60/17/66/1000_F_560176615_cUua21qgzxDiLiiyiVGYjUnLSGnVLIi6.webp' alt="Cart"/>
             </button>
           </div>
           <div className="dropdown dropdown-end">
