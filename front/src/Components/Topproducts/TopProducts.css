@@ -1,0 +1,33 @@
+.topproducts-container {
+    height: 700px;
+    width: 100%;
+    background-color: rgb(116, 75, 21);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+  }
+  
+  .mainGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+  }
+  
+  .allbox {
+    background-color: #4e4ebe;
+    box-shadow: rgb(5, 0, 0) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    margin: 5px; 
+    padding: 10px;
+    border-radius: 20px; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+  }
+  
+  .headingD h1 {
+    font-size: 30px;
+    color: #fff6f6;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
