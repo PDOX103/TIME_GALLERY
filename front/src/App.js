@@ -5,6 +5,7 @@ import Slider from './Components/Slider/Slider';
 import TopProducts from './Components/Topproducts/TopProducts';
 import Navbar from './Components/Navbar';
 import myJsonData from './Components/TopsearchesData.json';
+import Footer from './Components/Footer';
 
 function App() {
   const [filteredProducts, setFilteredProducts] = useState(myJsonData);
@@ -26,6 +27,7 @@ function App() {
       <Navbar onSearch={handleSearch}/>
       <Slider/>
       <TopProducts products={filteredProducts}/>
+      <Footer/>
     </>
   );
 }
