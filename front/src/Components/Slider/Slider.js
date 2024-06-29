@@ -5,8 +5,8 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const Slider = () => {
     const images = [
-        { img: "https://www.pngmart.com/files/13/Smartwatch-PNG-Image.png" },
-        { img: "https://clipground.com/images/smart-watch-png-8.png" } 
+        { img: "https://cdn.dribbble.com/users/77098/screenshots/2091016/800x600_awesome_speedometer.gif" },
+        { img: "https://cdn.dribbble.com/users/380263/screenshots/5322255/media/6e701e5ebfb09483a198636270e3f03e.gif" } 
     ];
 
     const [count, setCount] = useState(0);
@@ -23,7 +23,7 @@ const Slider = () => {
         <div className='slider-container'>
             <div className='slider'>
                 <div className='info-box'>
-                    <p>WE PROVIDE<br />AUTHENTIC PRODUCTS</p>
+                    <p>WE PROVIDE<br /><span className="authentic-text">AUTHENTIC</span> PRODUCTS</p>
                     <button>View Products</button>
                 </div>
                 <div className='slider-box'>

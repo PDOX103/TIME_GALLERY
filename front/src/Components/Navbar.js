@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import logo from '../Components/Time_Gallery.png';
+
 
 const Navbar = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -11,10 +13,11 @@ const Navbar = ({ onSearch }) => {
 
   return (
     <div>
-      <nav className="navbar bg-indigo-500 shadow-md px-4 py-2 rounded-md flex justify-between items-center">
-        <div>
-          <a href="#" className="text-2xl font-bold text-black">
-            Time-Gallery⌚
+      <nav className="navbar bg-slate-200 shadow-md px-4 py-2 flex justify-between items-center">
+      <div className="flex items-center">
+          <a href="#" className="text-2xl font-bold text-black flex items-center">
+            <img src={logo} alt="Logo" className="h-8 w-8 mr-2" />
+            Time-Gallery
           </a>
         </div>
         <div className="flex items-center gap-4">
