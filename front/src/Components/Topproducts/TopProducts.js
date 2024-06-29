@@ -17,7 +17,7 @@ const TopProducts = ({ products }) => {
           <Grid
             container
             spacing={{ xs: 2, md: 3 }}
-            columns={{ xs: 4, sm: 7, md: 25 }}
+            columns={{ xs: 4, sm: 7, md: 30 }}
             className="mainGrid"
           >
             {products.map((product, index) => (
