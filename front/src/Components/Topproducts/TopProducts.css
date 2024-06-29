@@ -1,7 +1,7 @@
 .topproducts-container {
-    height: 700px;
+    height: 650px;
     width: 100%;
-    background-color: rgb(116, 75, 21);
+    background-color: rgb(226 232 240);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -13,10 +13,17 @@
     justify-content: center;
     flex-wrap: wrap; 
   }
+
+  .mainHeadingDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Adjust as needed for your layout */
+  }
   
   .allbox {
-    background-color: #4e4ebe;
-    box-shadow: rgb(5, 0, 0) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.4) -5px 5px, rgba(0, 0, 0, 0.3) -10px 10px, rgba(5, 5, 5, 0.2) -15px 15px, rgba(0, 0, 0, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
     margin: 5px; 
     padding: 10px;
     border-radius: 20px; 
@@ -26,8 +33,15 @@
   }
   
   .headingD h1 {
-    font-size: 30px;
-    color: #fff6f6;
+    font-size: 27px;
+    color: rgb(190, 185, 185);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0% { color: rgb(255, 255, 255); }
+    50% { color: rgb(49, 123, 220); }
+    100% { color: rgb(203, 50, 50); }
   }
   

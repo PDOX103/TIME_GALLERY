@@ -9,7 +9,7 @@ const TopProducts = ({ products }) => {
     <>
       <div className='mainHeadingDiv'>
         <div className='headingD'>
-          <h1>OUR COLLECTIONS</h1>
+          <h1>OUR COLLECTIONS_</h1>
         </div>
       </div>
       <div className="topproducts-container">
@@ -17,7 +17,7 @@ const TopProducts = ({ products }) => {
           <Grid
             container
             spacing={{ xs: 2, md: 3 }}
-            columns={{ xs: 4, sm: 7, md: 30 }}
+            columns={{ xs: 4, sm: 7, md: 27 }}
             className="mainGrid"
           >
             {products.map((product, index) => (
@@ -25,17 +25,17 @@ const TopProducts = ({ products }) => {
                 <Box
                   component="img"
                   sx={{
-                    width: '200px',
+                    width: '205px',
                     height: '200px',
                     margin: '0 auto' // Center the image horizontally
                   }}
                   src={product.img}
                   alt={product.title}
                 />
-                <Typography variant="subtitle1" align="center" sx={{ marginTop: '10px', color: 'white' }}>
+                <Typography variant="subtitle1" align="center" sx={{ marginTop: '10px', color: 'black' }}>
                   {product.title}
                 </Typography>
-                <Typography variant="body2" align="center" sx={{ color: 'gold' }}>
+                <Typography variant="body2" align="center" sx={{ color: 'black', fontWeight: 'bold' }}>
                   {`Price: ${product.price}`}
                 </Typography>
               </Grid>
