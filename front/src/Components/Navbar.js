@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
+import logo from '../Components/Time_Gallery.png';
+import './Navbar.css'
 
-const Navbar = () => {
+
+const Navbar = ({ onSearch }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearchChange = (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    onSearch(query);
+  };
+
   return (
     <div>
-      <nav className="navbar bg-indigo-500 shadow-md px-4 py-2 rounded-md flex justify-between items-center">
-        <div>
-          <a href="#" className="text-2xl font-bold text-gray-800 hover:text-gray-600 transition-colors">
-            Time-Gallery⌚
+      <nav className="navbar bg-slate-200 shadow-md px-4 py-2 flex justify-between items-center">
+      <div className="flex items-center">
+        <a href="#" className="text-2xl custom-font text-black flex items-center">
+            <img src={logo} alt="Logo" className="h-8 w-8 mr-2" />
+            TIME-GALLERY
           </a>
+
         </div>
         <div className="flex items-center gap-4">
           <div className="relative flex items-center">
             <input
               type="text"
+              value={searchQuery}
+              onChange={handleSearchChange}
               placeholder="Search"
               className="input input-bordered w-24 md:w-64 lg:w-80 pl-8"
             />
@@ -33,7 +48,7 @@ const Navbar = () => {
           </div>
           <div className="relative">
             <button className="btn btn-ghost btn-circle">
-              <img src='./front/images/shopping-cart.png'/>
+              <img src='https://as1.ftcdn.net/v2/jpg/05/60/17/66/1000_F_560176615_cUua21qgzxDiLiiyiVGYjUnLSGnVLIi6.webp' alt="Cart"/>
             </button>
           </div>
           <div className="dropdown dropdown-end">
