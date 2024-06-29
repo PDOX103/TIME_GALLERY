@@ -1,18 +1,26 @@
-.slider{
-    height: 300px;
-    width: 1535px;
-    background-color: rgb(32, 30, 30);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
+.slider-container {
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box; 
 }
 
-.slider-box img{
+.slider {
+    height: 300px;
+    width: 100%;
+    background-color: rgb(32, 30, 30);
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    position: relative;
+    padding: 0 16px;
+    box-sizing: border-box; 
+}
+
+.slider-box img {
     height: 200px;
 }
 
-.info-box p{
+.info-box p {
     font-size: 40px;
     color: #948c8c;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -22,7 +30,7 @@
     color: rgb(54, 165, 44);
 }
 
-.info-box button{
+.info-box button {
     padding: .5rem 3rem;
     background-color: rgb(211, 205, 205);
     color: rgb(51, 30, 30);
