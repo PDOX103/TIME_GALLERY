@@ -9,7 +9,7 @@ const TopProducts = ({ products }) => {
     <>
       <div className='mainHeadingDiv'>
         <div className='headingD'>
-          <h1>TOP SEARCHES</h1>
+          <h1>OUR COLLECTIONS</h1>
         </div>
       </div>
       <div className="topproducts-container">
