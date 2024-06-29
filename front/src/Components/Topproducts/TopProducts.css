@@ -13,6 +13,13 @@
     justify-content: center;
     flex-wrap: wrap; 
   }
+
+  .mainHeadingDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Adjust as needed for your layout */
+  }
   
   .allbox {
     background-color: #ffffff;
@@ -26,8 +33,15 @@
   }
   
   .headingD h1 {
-    font-size: 30px;
-    color: #e53f3fe7;
+    font-size: 27px;
+    color: rgb(190, 185, 185);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0% { color: rgb(255, 255, 255); }
+    50% { color: rgb(49, 123, 220); }
+    100% { color: rgb(203, 50, 50); }
   }
   
