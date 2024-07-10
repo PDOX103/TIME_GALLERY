@@ -1,11 +1,17 @@
-import React from 'react'
+import React from 'react';
+import Slider from '../Components/Slider/Slider';
+import TopProducts from '../Components/Topproducts/TopProducts';
 
-const Homepage = () => {
+const Homepage = ({ products }) => {
   return (
-    <div>
-      Home Page
-    </div>
-  )
-}
+    <>
+      {/* Render Slider component */}
+      <Slider />
 
-export default Homepage
+      {/* Render TopProducts component with products data */}
+      <TopProducts products={products} />
+    </>
+  );
+};
+
+export default Homepage;

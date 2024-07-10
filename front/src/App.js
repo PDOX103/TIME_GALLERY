@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import Header from './Components/Header';
+import { Route, Routes } from 'react-router-dom';
 import Slider from './Components/Slider/Slider';
 import TopProducts from './Components/Topproducts/TopProducts';
 import Navbar from './Components/Navbar';
 import myJsonData from './Components/TopsearchesData.json';
 import Footer from './Components/Footer';
+import Homepage from './PAGES/Homepage';
+import SignIn from './Components/SignUp/SignIn';
+
 
 function App() {
   const [filteredProducts, setFilteredProducts] = useState(myJsonData);
@@ -23,11 +26,12 @@ function App() {
 
   return (
     <>
-    
-      <Navbar onSearch={handleSearch}/>
-      <Slider/>
-      <TopProducts products={filteredProducts}/>
-      <Footer/>
+      <Navbar onSearch={handleSearch} />
+      <Routes>
+        <Route path="/" element={<Homepage products={filteredProducts} />} />
+        <Route path="/sign-in" element={<SignIn />} />  {/* Add SignIn route */}
+      </Routes>
+      <Footer />
     </>
   );
 }
