@@ -74,7 +74,7 @@ const Navbar = ({ onSearch }) => {
                 <a className="text-gray-700 hover:bg-gray-100">Settings</a>
               </li>
               <li>
-                <a className="text-gray-700 hover:bg-gray-100">Logout</a>
+                <a className="text-gray-700 hover:bg-gray-100">Sign In</a>
               </li>
             </ul>
           </div>
