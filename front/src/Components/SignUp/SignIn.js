@@ -48,7 +48,7 @@ const SignIn = () => {
           />
         </div>
         <button type="submit" className="auth-button">Sign In</button>
-        <p>Don't have an account? <Link to="/sign-up">Sign Up</Link></p>
+        <p>Don't have an account? <Link to="/sign-up" className="underline-link">Sign Up</Link></p>
       </form>
     </div>
   );

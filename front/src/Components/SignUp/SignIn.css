@@ -1,4 +1,4 @@
-/* Apply styles only when the body has the 'auth-page' class */
+
 body.auth-page {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -11,7 +11,7 @@ body.auth-page {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Overlay for better contrast */
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .auth-form {
@@ -26,6 +26,7 @@ body.auth-page {
 
 .auth-form h2 {
   margin-bottom: 1.5rem;
+  font-size: 24px;
 }
 
 .form-group {
@@ -63,4 +64,13 @@ body.auth-page {
 
 .auth-form p {
   margin-top: 1rem;
+}
+.underline-link {
+  text-decoration: underline;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.underline-link:hover {
+  color: red;
 }

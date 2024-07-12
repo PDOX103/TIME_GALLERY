@@ -64,3 +64,12 @@ body.auth-page {
 .auth-form p {
   margin-top: 1rem;
 }
+.underline-link {
+  text-decoration: underline;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.underline-link:hover {
+  color: red;
+}
