@@ -24,7 +24,9 @@ const Footer = () => {
         <div className="footer-section contact">
           <h2>Contact Us</h2>
           <p><i className="fas fa-phone"></i> 01308194899</p>
+          <p><i className="fas fa-phone"></i> 01799607676</p>
           <p><i className="fas fa-envelope"></i> sayekalsami@gmail.com</p>
+          <p><i className="fas fa-envelope"></i> fahmidulkarim@gmail.com</p>
           <p><i className="fas fa-map-marker-alt"></i> 141-142, Love Road, Tejgaon, Dhaka-1208.</p>
         </div>
 
