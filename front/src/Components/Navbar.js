@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../Components/Time_Gallery.png';
-import './Navbar.css'
-
+import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -15,12 +15,11 @@ const Navbar = ({ onSearch }) => {
   return (
     <div>
       <nav className="navbar bg-slate-200 shadow-md px-4 py-2 flex justify-between items-center">
-      <div className="flex items-center">
-        <a href="#" className="text-2xl custom-font text-black flex items-center">
+        <div className="flex items-center">
+          <Link to="/" className="text-2xl custom-font text-black flex items-center">
             <img src={logo} alt="Logo" className="h-8 w-8 mr-2" />
             TIME-GALLERY
-          </a>
-
+          </Link>
         </div>
         <div className="flex items-center gap-4">
           <div className="relative flex items-center">
@@ -48,7 +47,7 @@ const Navbar = ({ onSearch }) => {
           </div>
           <div className="relative">
             <button className="btn btn-ghost btn-circle">
-              <img src='https://as1.ftcdn.net/v2/jpg/05/60/17/66/1000_F_560176615_cUua21qgzxDiLiiyiVGYjUnLSGnVLIi6.webp' alt="Cart"/>
+              <img src='https://as1.ftcdn.net/v2/jpg/05/60/17/66/1000_F_560176615_cUua21qgzxDiLiiyiVGYjUnLSGnVLIi6.webp' alt="Cart" />
             </button>
           </div>
           <div className="dropdown dropdown-end">
@@ -65,16 +64,16 @@ const Navbar = ({ onSearch }) => {
               className="menu menu-sm dropdown-content bg-white border rounded-lg mt-3 w-52 p-2 shadow-lg"
             >
               <li>
-                <a className="flex justify-between items-center text-gray-700 hover:bg-gray-100">
+                <Link to="/profile" className="flex justify-between items-center text-gray-700 hover:bg-gray-100">
                   Profile
                   <span className="badge bg-blue-500 text-white">New</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-gray-700 hover:bg-gray-100">Settings</a>
+                <Link to="/settings" className="text-gray-700 hover:bg-gray-100">Settings</Link>
               </li>
               <li>
-                <a className="text-gray-700 hover:bg-gray-100">Logout</a>
+                <Link to="/sign-in" className="text-gray-700 hover:bg-gray-100">Sign In</Link>
               </li>
             </ul>
           </div>
