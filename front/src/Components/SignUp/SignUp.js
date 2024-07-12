@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.css';
 import SummaryApi from '../../Common';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,6 +14,8 @@ const SignUp = () => {
     confirmPassword: '',
     //profilePic: ''
   });
+
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,6 +35,15 @@ const SignUp = () => {
         })
     
         const dataApi = await dataResponse.json()
+
+        if(dataApi.success){
+            toast.success(dataApi.message)
+            navigate("/sign-in")
+        }
+
+        if(dataApi.error){
+            toast.error(dataApi.message)
+        }
     
         console.log('data', dataApi);
     }else{
