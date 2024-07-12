@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Slider from './Components/Slider/Slider';
-import TopProducts from './Components/Topproducts/TopProducts';
 import Navbar from './Components/Navbar';
 import myJsonData from './Components/TopsearchesData.json';
 import Footer from './Components/Footer';
 import Homepage from './PAGES/Homepage';
 import SignIn from './Components/SignUp/SignIn';
 import SignUp from './Components/SignUp/SignUp';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {

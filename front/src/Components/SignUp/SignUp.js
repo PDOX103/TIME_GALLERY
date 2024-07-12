@@ -1,20 +1,44 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './SignUp.css';
+import SummaryApi from '../../Common';
 
 const SignUp = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [data, setData] = useState({
+    email: '',
+    password: '',
+    name: '',
+    confirmPassword: '',
+    //profilePic: ''
+  });
 
-  const handleSubmit = (event) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
+
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    // Handle sign-up logic here
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Confirm Password:', confirmPassword);
+
+    if(data.password === data.confirmPassword){
+        const dataResponse = await fetch(SummaryApi.signUP.url,{
+            method : SummaryApi.signUP.method,
+            headers : {
+                "content-type": "application/json"
+            },
+            body : JSON.stringify(data)
+        })
+    
+        const dataApi = await dataResponse.json()
+    
+        console.log('data', dataApi);
+    }else{
+        console.log("Not match with password")
+    }
+    
+    
   };
 
   return (
@@ -26,8 +50,9 @@ const SignUp = () => {
           <input
             type="text"
             id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            name="name"
+            value={data.name}
+            onChange={handleChange}
             required
           />
         </div>
@@ -36,30 +61,39 @@ const SignUp = () => {
           <input
             type="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            value={data.email}
+            onChange={handleChange}
             required
           />
         </div>
         <div className="form-group">
           <label htmlFor="password">Password:</label>
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            value={data.password}
+            onChange={handleChange}
             required
           />
+          <button type="button" onClick={() => setShowPassword(!showPassword)}>
+            {showPassword ? 'Hide' : 'Show'}
+          </button>
         </div>
         <div className="form-group">
           <label htmlFor="confirmPassword">Confirm Password:</label>
           <input
-            type="password"
+            type={showConfirmPassword ? 'text' : 'password'}
             id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            name="confirmPassword"
+            value={data.confirmPassword}
+            onChange={handleChange}
             required
           />
+          <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+            {showConfirmPassword ? 'Hide' : 'Show'}
+          </button>
         </div>
         <button type="submit" className="signup-button">Sign Up</button>
         <p>Already have an account? <Link to="/sign-in">Sign In</Link></p>
