@@ -1,11 +1,12 @@
-body {
+/* Apply styles only when the body has the 'auth-page' class */
+body.auth-page {
   margin: 0;
   font-family: Arial, sans-serif;
   background: url('F:\\Mern\\TIME_GALLERY\\front\\images\\watches\\watches\\Sign in BG.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
-.signin-container {
+.auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +14,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5); /* Overlay for better contrast */
 }
 
-.signin-form {
+.auth-form {
   background-color: #fff;
   padding: 2rem;
   border-radius: 8px;
@@ -23,7 +24,7 @@ body {
   text-align: center;
 }
 
-.signin-form h2 {
+.auth-form h2 {
   margin-bottom: 1.5rem;
 }
 
@@ -45,7 +46,7 @@ body {
   box-sizing: border-box;
 }
 
-.signin-button {
+.auth-button {
   width: 100%;
   padding: 0.75rem;
   background-color: #f04e45;
@@ -56,10 +57,10 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.signin-button:hover {
+.auth-button:hover {
   background-color: #d03d3a;
 }
 
-.signin-form p {
+.auth-form p {
   margin-top: 1rem;
 }
