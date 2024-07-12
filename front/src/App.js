@@ -8,6 +8,7 @@ import myJsonData from './Components/TopsearchesData.json';
 import Footer from './Components/Footer';
 import Homepage from './PAGES/Homepage';
 import SignIn from './Components/SignUp/SignIn';
+import SignUp from './Components/SignUp/SignUp';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage products={filteredProducts} />} />
         <Route path="/sign-in" element={<SignIn />} />  {/* Add SignIn route */}
+        <Route path="/sign-up" element={<SignUp />} />
       </Routes>
       <Footer />
     </>
