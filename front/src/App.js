@@ -26,21 +26,27 @@ function App() {
   };
 
   const fetchUserDetails = async () => {
-    const dataResponse = await fetch(SummaryApi.current_user.url, {
-      method: SummaryApi.current_user.method,
-      credentials: 'include'
-    });
-
-    const dataApi = await dataResponse.json();
-    if (dataApi.success) {
-      setIsSignedIn(true);
-      localStorage.setItem('isSignedIn', 'true'); // Persist the sign-in status
-    } else {
-      setIsSignedIn(false);
-      localStorage.setItem('isSignedIn', 'false'); // Persist the sign-out status
+    try {
+        const dataResponse = await fetch(SummaryApi.current_user.url, {
+            method: SummaryApi.current_user.method,
+            credentials: 'include'
+        });
+        const dataApi = await dataResponse.json();
+        console.log("Current User Data:", dataApi); // Debugging log
+        if (dataApi.success) {
+            setIsSignedIn(true);
+            localStorage.setItem('isSignedIn', 'true'); // Persist the sign-in status
+        } else {
+            setIsSignedIn(false);
+            localStorage.setItem('isSignedIn', 'false'); // Persist the sign-out status
+        }
+    } catch (error) {
+        console.error("Failed to fetch current user details", error);
+        setIsSignedIn(false);
+        localStorage.setItem('isSignedIn', 'false');
     }
-    console.log("data-user", dataApi);
-  };
+};
+
 
   useEffect(() => {
     const storedSignInStatus = localStorage.getItem('isSignedIn');

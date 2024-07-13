@@ -7,11 +7,14 @@ import SummaryApi from '../../Common';
 const SignIn = ({ setIsSignedIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
 
     const data = {
       email,
@@ -44,6 +47,8 @@ const SignIn = ({ setIsSignedIn }) => {
     } catch (error) {
       toast.error('An error occurred. Please try again.');
       console.error('Error:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -64,18 +69,28 @@ const SignIn = ({ setIsSignedIn }) => {
         <div className="form-group">
           <label htmlFor="password">Password:</label>
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <button
+            type="button"
+            className="toggle-password"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? 'Hide' : 'Show'}
+          </button>
         </div>
-        <button type="submit">Sign In</button>
+        <button type="submit" className="signin-button" disabled={loading}>
+          {loading ? 'Signing In...' : 'Sign In'}
+        </button>
         <p>
           Don't have an account? <Link to="/sign-up">Sign Up</Link>
         </p>
       </form>
+      {loading && <div className="loading-spinner"></div>}
     </div>
   );
 };

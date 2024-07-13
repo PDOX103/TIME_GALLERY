@@ -12,7 +12,6 @@ const SignUp = () => {
     password: '',
     name: '',
     confirmPassword: '',
-    //profilePic: ''
   });
   const [loading, setLoading] = useState(false); // State to track loading status
 
@@ -48,6 +47,7 @@ const SignUp = () => {
       console.log('data', dataApi);
     } else {
       console.log('Passwords do not match');
+      toast.error('Passwords do not match');
     }
 
     setLoading(false); // Set loading back to false after API call completes
@@ -91,6 +91,7 @@ const SignUp = () => {
           />
           <button
             type="button"
+            className="toggle-password"
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? 'Hide' : 'Show'}
@@ -108,6 +109,7 @@ const SignUp = () => {
           />
           <button
             type="button"
+            className="toggle-password"
             onClick={() => setShowConfirmPassword(!showConfirmPassword)}
           >
             {showConfirmPassword ? 'Hide' : 'Show'}
@@ -120,6 +122,7 @@ const SignUp = () => {
           Already have an account? <Link to="/sign-in">Sign In</Link>
         </p>
       </form>
+      {loading && <div className="loading-spinner"></div>}
     </div>
   );
 };

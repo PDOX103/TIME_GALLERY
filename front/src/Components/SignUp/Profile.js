@@ -11,23 +11,26 @@ const Profile = () => {
 
   const fetchUserDetails = async () => {
     try {
-      const response = await fetch(SummaryApi.userDetails.url, {
-        method: SummaryApi.userDetails.method,
-        credentials: 'include'
-      });
-      const result = await response.json();
-      if (result.success) {
-        setData({
-          name: result.data.name,
-          email: result.data.email
+        const response = await fetch(SummaryApi.userDetails.url, {
+            method: SummaryApi.userDetails.method,
+            credentials: 'include'
         });
-      } else {
-        toast.error(result.message);
-      }
+        const result = await response.json();
+        console.log("User Details Response:", result); // Debugging log
+        if (result.success) {
+            setData({
+                name: result.data.name,
+                email: result.data.email
+            });
+        } else {
+            toast.error(result.message);
+        }
     } catch (error) {
-      toast.error('Failed to fetch user details');
+        toast.error('Failed to fetch user details');
     }
-  };
+};
+
+  
 
   useEffect(() => {
     fetchUserDetails();
