@@ -9,7 +9,7 @@
   background-color: #ffffff;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
   width: 100%;
   max-width: 400px;
 }
@@ -21,7 +21,7 @@
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -36,7 +36,7 @@
 .toggle-password {
   background: none;
   border: none;
-  color: #007bff;
+  color: #000000;
   cursor: pointer;
   font-size: 0.9rem;
   margin-top: 0.5rem;
