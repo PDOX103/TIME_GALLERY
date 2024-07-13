@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const userModel = require("../models/userModel");
+const jwt = require('jsonwebtoken');
 
 async function userSignInController(req, res) {
     try {
@@ -22,15 +23,29 @@ async function userSignInController(req, res) {
 
         console.log('checkPassword', checkPassword);
 
-        if (!checkPassword) {
-            throw new Error("Invalid credentials");
+        if(checkPassword) {
+            const tokenData = {
+                _id : user._id,
+                email : user.email
+            }
+            const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: 60 * 60 * 8 });
+
+            const tokenOption = {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production' ? true : false, 
+                sameSite: 'Strict' 
+            }
+
+            res.cookie("token",token,tokenOption).json({
+                message: "User signed in successfully",
+                data : token,
+                success: true,
+                error: false
+            });
+        }else{
+            throw new Error("Please check password");
         }
 
-        res.status(200).json({
-            message: "User signed in successfully",
-            success: true,
-            error: false,
-        });
     } catch (err) {
         res.status(400).json({
             message: err.message || err,

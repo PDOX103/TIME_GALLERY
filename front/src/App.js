@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar';
@@ -7,11 +7,12 @@ import Footer from './Components/Footer';
 import Homepage from './PAGES/Homepage';
 import SignIn from './Components/SignUp/SignIn';
 import SignUp from './Components/SignUp/SignUp';
-
-
+import SummaryApi from './Common';
+import Profile from './Components/SignUp/Profile';
 
 function App() {
   const [filteredProducts, setFilteredProducts] = useState(myJsonData);
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
   const handleSearch = (query) => {
     if (query === '') {
@@ -24,13 +25,42 @@ function App() {
     }
   };
 
+  const fetchUserDetails = async () => {
+    const dataResponse = await fetch(SummaryApi.current_user.url, {
+      method: SummaryApi.current_user.method,
+      credentials: 'include'
+    });
+
+    const dataApi = await dataResponse.json();
+    if (dataApi.success) {
+      setIsSignedIn(true);
+      localStorage.setItem('isSignedIn', 'true'); // Persist the sign-in status
+    } else {
+      setIsSignedIn(false);
+      localStorage.setItem('isSignedIn', 'false'); // Persist the sign-out status
+    }
+    console.log("data-user", dataApi);
+  };
+
+  useEffect(() => {
+    const storedSignInStatus = localStorage.getItem('isSignedIn');
+    if (storedSignInStatus === 'true') {
+      setIsSignedIn(true);
+    } else {
+      setIsSignedIn(false);
+    }
+
+    fetchUserDetails();
+  }, []);
+
   return (
     <>
-      <Navbar onSearch={handleSearch} />
+      <Navbar onSearch={handleSearch} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
       <Routes>
         <Route path="/" element={<Homepage products={filteredProducts} />} />
-        <Route path="/sign-in" element={<SignIn />} />  {/* Add SignIn route */}
+        <Route path="/sign-in" element={<SignIn setIsSignedIn={setIsSignedIn} />} /> {/* Add SignIn route */}
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
     </>

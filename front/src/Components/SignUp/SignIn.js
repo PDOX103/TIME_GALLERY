@@ -1,16 +1,50 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './SignIn.css';
+import { toast } from 'react-toastify';
+import SummaryApi from '../../Common';
 
-const SignIn = () => {
+const SignIn = ({ setIsSignedIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (event) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle sign-in logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
+
+    const data = {
+      email,
+      password,
+    };
+
+    try {
+      const dataResponse = await fetch(SummaryApi.signIN.url, {
+        method: SummaryApi.signIN.method,
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const dataApi = await dataResponse.json();
+
+      if (dataApi.success) {
+        toast.success(dataApi.message);
+        setIsSignedIn(true);
+        localStorage.setItem('isSignedIn', 'true'); // Persist the sign-in status
+        navigate('/');
+      } else if (dataApi.error) {
+        toast.error(dataApi.message);
+      }
+
+      console.log('Email:', email);
+      console.log('Password:', password);
+    } catch (error) {
+      toast.error('An error occurred. Please try again.');
+      console.error('Error:', error);
+    }
   };
 
   return (
@@ -37,8 +71,10 @@ const SignIn = () => {
             required
           />
         </div>
-        <button type="submit" className="signin-button">Sign In</button>
-        <p>Don't have an account? <Link to="/sign-up">Sign Up</Link></p>
+        <button type="submit">Sign In</button>
+        <p>
+          Don't have an account? <Link to="/sign-up">Sign Up</Link>
+        </p>
       </form>
     </div>
   );

@@ -14,43 +14,43 @@ const SignUp = () => {
     confirmPassword: '',
     //profilePic: ''
   });
+  const [loading, setLoading] = useState(false); // State to track loading status
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
   };
 
-  const handleSubmit = async(event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true); // Set loading to true on form submit
 
-    if(data.password === data.confirmPassword){
-        const dataResponse = await fetch(SummaryApi.signUP.url,{
-            method : SummaryApi.signUP.method,
-            headers : {
-                "content-type": "application/json"
-            },
-            body : JSON.stringify(data)
-        })
-    
-        const dataApi = await dataResponse.json()
+    if (data.password === data.confirmPassword) {
+      const dataResponse = await fetch(SummaryApi.signUP.url, {
+        method: SummaryApi.signUP.method,
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-        if(dataApi.success){
-            toast.success(dataApi.message)
-            navigate("/sign-in")
-        }
+      const dataApi = await dataResponse.json();
 
-        if(dataApi.error){
-            toast.error(dataApi.message)
-        }
-    
-        console.log('data', dataApi);
-    }else{
-        console.log("Not match with password")
+      if (dataApi.success) {
+        toast.success(dataApi.message);
+        navigate('/sign-in');
+      } else if (dataApi.error) {
+        toast.error(dataApi.message);
+      }
+
+      console.log('data', dataApi);
+    } else {
+      console.log('Passwords do not match');
     }
-    
-    
+
+    setLoading(false); // Set loading back to false after API call completes
   };
 
   return (
@@ -89,7 +89,10 @@ const SignUp = () => {
             onChange={handleChange}
             required
           />
-          <button type="button" onClick={() => setShowPassword(!showPassword)}>
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+          >
             {showPassword ? 'Hide' : 'Show'}
           </button>
         </div>
@@ -103,12 +106,19 @@ const SignUp = () => {
             onChange={handleChange}
             required
           />
-          <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+          <button
+            type="button"
+            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+          >
             {showConfirmPassword ? 'Hide' : 'Show'}
           </button>
         </div>
-        <button type="submit" className="signup-button">Sign Up</button>
-        <p>Already have an account? <Link to="/sign-in">Sign In</Link></p>
+        <button type="submit" className="signup-button" disabled={loading}>
+          {loading ? 'Signing Up...' : 'Sign Up'}
+        </button>
+        <p>
+          Already have an account? <Link to="/sign-in">Sign In</Link>
+        </p>
       </form>
     </div>
   );
