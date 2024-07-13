@@ -21,28 +21,31 @@ async function userSignInController(req, res) {
 
         const checkPassword = await bcrypt.compare(password, user.password);
 
-        console.log('checkPassword', checkPassword);
-
-        if(checkPassword) {
+        if (checkPassword) {
             const tokenData = {
-                _id : user._id,
-                email : user.email
-            }
-            const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: 60 * 60 * 8 });
+                _id: user._id,
+                email: user.email
+            };
+
+            const accessToken = jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: '15m' }); // Shorter lifespan
+            const refreshToken = jwt.sign(tokenData, process.env.REFRESH_TOKEN_SECRET_KEY, { expiresIn: '7d' });
 
             const tokenOption = {
                 httpOnly: true,
-                secure: process.env.NODE_ENV === 'production' ? true : false, 
-                sameSite: 'Strict' 
-            }
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'Strict'
+            };
 
-            res.cookie("token",token,tokenOption).json({
+            res.cookie("accessToken", accessToken, tokenOption);
+            res.cookie("refreshToken", refreshToken, { ...tokenOption, maxAge: 7 * 24 * 60 * 60 * 1000 }); // 7 days
+
+            res.json({
                 message: "User signed in successfully",
-                data : token,
+                data: { accessToken, refreshToken },
                 success: true,
                 error: false
             });
-        }else{
+        } else {
             throw new Error("Please check password");
         }
 
