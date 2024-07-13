@@ -15,6 +15,12 @@ app.use(express.json());
 app.use("/api", router);
 app.use(cookieParser());
 
+// Default route
+app.get("/", (req, res) => {
+  res.json("<h1>Welcome to ecommerce app</h1>");
+});
+
+
 const PORT = process.env.PORT || 8080;
 
 connectDB().then(() => {
