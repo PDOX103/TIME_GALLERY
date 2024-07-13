@@ -16,14 +16,14 @@ const Footer = () => {
           <ul>
             <li><a href="/shop">Shop</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
             <li><a href="/faq">FAQ</a></li>
           </ul>
         </div>
 
         <div className="footer-section contact">
           <h2>Contact Us</h2>
-          <p><i className="fas fa-phone"></i> 01308194899</p>
+          <p><i className="fas fa-phone"></i> 01308194899 or 01799607676</p>
+          <p><i className="fas fa-envelope"></i> fahmidulkarimrafi@gmail.com</p>
           <p><i className="fas fa-envelope"></i> sayekalsami@gmail.com</p>
           <p><i className="fas fa-map-marker-alt"></i> 141-142, Love Road, Tejgaon, Dhaka-1208.</p>
         </div>
