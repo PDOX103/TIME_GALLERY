@@ -2,7 +2,7 @@
 body.auth-page {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: url('F:\\Mern\\TIME_GALLERY\\front\\images\\watches\\watches\\Sign in BG.jpg') no-repeat center center fixed;
+  background: url('https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
   background-size: cover;
 }
 
