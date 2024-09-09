@@ -15,7 +15,17 @@ async function updateUserDetailsController(req, res) {
         if (name) user.name = name;
         if (email) user.email = email;
         if (password) {
-            const salt = bcrypt.genSaltSync(10);
+           const userSignOutController = (req, res) => {
+    res.clearCookie('token');
+    res.status(200).json({
+        message: "User signed out successfully",
+        success: true,
+        error: false
+    });
+};
+
+module.exports = userSignOutController;
+ const salt = bcrypt.genSaltSync(10);
             user.password = bcrypt.hashSync(password, salt);
         }
 

@@ -1,4 +1,4 @@
-const backendDomain = "https://time-gallery-backend.vercel.app";
+const backendDomain = "http://localhost:8080";
 
 const SummaryApi = {
     signUP: {
@@ -15,7 +15,7 @@ const SummaryApi = {
     },
     updateUserDetails: {
         url: `${backendDomain}/api/userupdate-details`,
-        method: 'PUT'
+        method: 'get'
     },
     signOut: {
         url: `${backendDomain}/api/signout`,
