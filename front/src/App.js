@@ -9,6 +9,8 @@ import SignIn from './Components/SignUp/SignIn';
 import SignUp from './Components/SignUp/SignUp';
 import SummaryApi from './Common';
 import Profile from './Components/SignUp/Profile';
+import { ToastContainer } from 'react-toastify';
+import Context from './context';
 
 function App() {
   const [filteredProducts, setFilteredProducts] = useState(myJsonData);
@@ -61,6 +63,10 @@ function App() {
 
   return (
     <>
+      <Context.Provider value = {{
+        fetchUserDetails
+      }}>
+      <ToastContainer/>
       <Navbar onSearch={handleSearch} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
       <Routes>
         <Route path="/" element={<Homepage products={filteredProducts} />} />
@@ -69,6 +75,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
+      </Context.Provider>
     </>
   );
 }

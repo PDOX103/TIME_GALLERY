@@ -2,9 +2,9 @@ const jwt = require('jsonwebtoken');
 
 async function authToken(req, res, next) {
     try {
-        const token = req.cookies?.token;
+        const accessToken = req.cookies?.accessToken;
 
-        if (!token) {
+        if (!accessToken) {
             return res.json({
                 message: "User not signed in",
                 error: true,
@@ -12,11 +12,11 @@ async function authToken(req, res, next) {
             });
         }
 
-        jwt.verify(token, process.env.TOKEN_SECRET_KEY, (err, decoded) => {
+        jwt.verify(accessToken, process.env.TOKEN_SECRET_KEY, (err, decoded) => {
             if (err) {
                 throw new Error("Invalid token");
             }
-            req.user = decoded;
+            req.user,id = decoded?._id;
             next();
         });
     } catch (err) {

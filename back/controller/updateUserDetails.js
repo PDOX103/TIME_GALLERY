@@ -16,7 +16,7 @@ async function updateUserDetailsController(req, res) {
         if (email) user.email = email;
         if (password) {
            const userSignOutController = (req, res) => {
-    res.clearCookie('token');
+    res.clearCookie('accessToken');
     res.status(200).json({
         message: "User signed out successfully",
         success: true,

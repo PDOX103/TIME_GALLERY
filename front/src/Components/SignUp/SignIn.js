@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './SignIn.css';
 import { toast } from 'react-toastify';
 import SummaryApi from '../../Common';
+import Context from '../../context';
 
 const SignIn = ({ setIsSignedIn }) => {
   const [email, setEmail] = useState('');
@@ -11,6 +12,8 @@ const SignIn = ({ setIsSignedIn }) => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const {fetchUserDetails} = useContext(Context);
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -38,6 +41,7 @@ const SignIn = ({ setIsSignedIn }) => {
         setIsSignedIn(true);
         localStorage.setItem('isSignedIn', 'true'); // Persist the sign-in status
         navigate('/');
+        fetchUserDetails();
       } else if (dataApi.error) {
         toast.error(dataApi.message);
       }
