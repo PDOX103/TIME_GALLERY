@@ -8,8 +8,11 @@ const router = require('./routes');
 const app = express();
 app.use(cors({
     origin: process.env.FRONTEND_URL,
-    credentials: true
+    credentials: true, // Allow credentials (cookies, etc.)
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Ensure all required methods are allowed
+    allowedHeaders: ['Content-Type', 'Authorization'], // Ensure headers used by frontend are allowed
 }));
+
 
 app.use(express.json()); 
 app.use("/api", router);

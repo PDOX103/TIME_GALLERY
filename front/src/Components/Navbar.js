@@ -64,6 +64,7 @@ const Navbar = ({ onSearch, isSignedIn, setIsSignedIn }) => {
               <img src='https://as1.ftcdn.net/v2/jpg/05/60/17/66/1000_F_560176615_cUua21qgzxDiLiiyiVGYjUnLSGnVLIi6.webp' alt="Cart" />
             </button>
           </div>
+          {/* Conditionally render the profile or the sign-in/up buttons */}
           {isSignedIn ? (
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

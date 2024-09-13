@@ -3,7 +3,7 @@ const userModel = require("../models/userModel");
 async function userDetailsController(req, res) {
     try {
         const userId = req.user._id;
-        const user = await userModel.findById(userId, '-password'); // Exclude password
+        const user = await userModel.findById(userId, '-password'); // Exclude password field
 
         if (!user) {
             throw new Error("User not found");

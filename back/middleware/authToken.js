@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 async function authToken(req, res, next) {
     try {
-        const token = req.cookies?.token;
+        const token = req.cookies?.accessToken; // Fetch access token
 
         if (!token) {
             return res.json({
@@ -16,7 +16,7 @@ async function authToken(req, res, next) {
             if (err) {
                 throw new Error("Invalid token");
             }
-            req.user = decoded;
+            req.user = decoded; // Attach user data to request
             next();
         });
     } catch (err) {

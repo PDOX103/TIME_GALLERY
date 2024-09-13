@@ -1,4 +1,4 @@
-const backendDomain = "https://time-gallery-backend.vercel.app";
+const backendDomain = "http://localhost:8080";
 
 const SummaryApi = {
     signUP: {

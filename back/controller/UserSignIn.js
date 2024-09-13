@@ -35,16 +35,17 @@ async function userSignInController(req, res) {
                 secure: process.env.NODE_ENV === 'production',
                 sameSite: 'Strict'
             };
-
-            res.cookie("accessToken", accessToken, tokenOption);
+            
+            //res.cookie("accessToken", accessToken, tokenOption);
             res.cookie("refreshToken", refreshToken, { ...tokenOption, maxAge: 7 * 24 * 60 * 60 * 1000 }); // 7 days
 
-            res.json({
-                message: "User signed in successfully",
+            res.cookie("accessToken",accessToken,tokenOption).status(200).json({
+                message : "Signed in successfully",
                 data: { accessToken, refreshToken },
-                success: true,
-                error: false
-            });
+                success : true,
+                error : false
+            })
+    
         } else {
             throw new Error("Please check password");
         }
