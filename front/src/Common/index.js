@@ -19,7 +19,7 @@ const SummaryApi = {
     },
     signOut: {
         url: `${backendDomain}/api/signout`,
-        method: "post"
+        method: "get"
     }
 };
 

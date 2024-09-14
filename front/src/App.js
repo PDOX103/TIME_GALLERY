@@ -8,7 +8,7 @@ import Homepage from './PAGES/Homepage';
 import SignIn from './Components/SignUp/SignIn';
 import SignUp from './Components/SignUp/SignUp';
 import SummaryApi from './Common';
-import Profile from './Components/SignUp/Profile';
+import Profile from './Components/SignUp/AdminPanel';
 import Context from './context';
 
 function App() {
