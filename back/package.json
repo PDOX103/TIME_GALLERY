@@ -5,6 +5,9 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
     "server": "nodemon index.js"
   },
   "author": "",
@@ -28,6 +31,7 @@
     "validator": "^13.12.0"
   },
   "devDependencies": {
-    "@ljharb/tsconfig": "^0.2.0"
+    "@ljharb/tsconfig": "^0.2.0",
+    "vite": "^5.4.6"
   }
 }
