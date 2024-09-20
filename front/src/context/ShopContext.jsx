@@ -21,7 +21,7 @@ const ShopContextProvider = (props) => {
     const addToCart = async (itemId, size) => {
 
         if(!size){
-            toast.error('Select Product size');
+            toast.error('Select Product Color');
             return;
         }
 
