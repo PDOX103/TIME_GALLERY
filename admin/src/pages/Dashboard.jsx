@@ -53,8 +53,8 @@ const Dashboard = ({ token }) => {
             {/* Bar Chart for Top Sold Products */}
             <BarChart width={1000} height={500} data={topProducts}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" tickCount={5} /> {/* Explicitly pass props */}
-                <YAxis tickCount={5} /> {/* Explicitly pass props */}
+                <XAxis dataKey="name" tick={false} /> {/* Hide the product names */}
+                <YAxis tickCount={5} />
                 <Tooltip />
                 <Legend />
                 <Bar dataKey="quantity" fill="#8884d8" />
