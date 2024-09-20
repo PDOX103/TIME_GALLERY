@@ -1,31 +1,33 @@
-const express = require('express');
-const cors = require('cors');
-const cookieParser = require('cookie-parser')
-require('dotenv').config();
-const connectDB = require('./config/db');
-const router = require('./routes');
-
-const app = express();
-app.use(cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true
-}));
-
-app.use(express.json()); 
-app.use("/api", router);
-app.use(cookieParser());
-
-// Default route
-app.get("/", (req, res) => {
-  res.json("<h1>Welcome to ecommerce app</h1>");
-});
+import express from 'express'
+import cors from 'cors'
+import 'dotenv/config'
+import connectDB from './config/mongodb.js'
+import connectCloudinary from './config/cloudinary.js'
+import userRouter from './routes/userRoute.js'
+import productRouter from './routes/productRoute.js'
+import cartRouter from './routes/cartRoute.js'
+import orderRouter from './routes/orderRoute.js'
 
 
-const PORT = process.env.PORT || 8080;
+//APP config
+const app=express()
+const port = process.env.PORT || 4000
+connectDB()
+connectCloudinary()
 
-connectDB().then(() => {
-    app.listen(PORT, () => {
-        console.log("Connected to db");
-        console.log("Server is running on port", PORT);
-    });
-});
+//middleware
+app.use(express.json());
+app.use(cors());
+
+//api endpoint
+app.use('/api/user', userRouter)
+app.use('/api/product', productRouter)
+app.use('/api/cart', cartRouter)
+app.use('/api/order', orderRouter)
+
+app.get('/', (req,res)=>{
+    res.send("API Working")
+})
+
+app.listen(port, ()=> console.log('Server started on PORT : '+ port))
+
