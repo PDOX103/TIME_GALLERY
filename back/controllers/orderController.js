@@ -77,4 +77,38 @@ const updateStatus = async (req,res) => {
     }
 }
 
-export {placeOrder, placeOrderStripe, placeOrderRazorpay, allOrders, userOrders, updateStatus}
+// Total amount of products sold
+const totalSales = async (req, res) => {
+    try {
+        const orders = await orderModel.find({});
+        let totalAmount = 0;
+        let productSales = {};
+
+        orders.forEach(order => {
+            totalAmount += order.amount;
+
+            order.items.forEach(item => {
+                if (!productSales[item.name]) {
+                    productSales[item.name] = { quantity: item.quantity, sales: item.quantity * item.price };
+                } else {
+                    productSales[item.name].quantity += item.quantity;
+                    productSales[item.name].sales += item.quantity * item.price;
+                }
+            });
+        });
+
+        const sortedProductSales = Object.entries(productSales).sort((a, b) => b[1].quantity - a[1].quantity);
+
+        res.json({
+            success: true,
+            totalAmount,
+            topProducts: sortedProductSales.slice(0, 5) // Top 5 products
+        });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
+    }
+}
+
+
+export {placeOrder, placeOrderStripe, placeOrderRazorpay, allOrders, userOrders, updateStatus, totalSales}

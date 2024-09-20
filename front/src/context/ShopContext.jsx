@@ -9,7 +9,7 @@ export const ShopContext = createContext();
 const ShopContextProvider = (props) => {
 
     const currency = '৳';
-    const delivery_fee = 10;
+    const delivery_fee = 70;
     const backendUrl = 'http://localhost:4000'
     const [search, setSearch] = useState('');
     const [showSearch, setShowSearch]= useState(false);

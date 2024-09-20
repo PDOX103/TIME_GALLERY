@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
+import Dashboard from "./pages/Dashboard";
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 export const currency = '৳'
@@ -37,6 +38,7 @@ const App = () => {
                 <Route path="/add" element={<Add token={token}/>} />
                 <Route path="/list" element={<List token={token}/>} />
                 <Route path="/orders" element={<Orders token={token}/>} />
+                <Route path="/dashboard" element={<Dashboard token={token}/>} />
               </Routes>
             </div>
           </div>
