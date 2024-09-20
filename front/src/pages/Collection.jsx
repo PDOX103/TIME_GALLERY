@@ -43,9 +43,9 @@ const Collection = () => {
       productsCopy = productsCopy.filter(item => category.includes(item.category));
     }
 
-    if(subCategory.length >0){
-      productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory));
-    }
+    // if(subCategory.length >0){
+    //   productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory));
+    // }
 
     setFilterProducts(productsCopy)
   }
@@ -103,6 +103,7 @@ const Collection = () => {
         </div>
         {/* SubCategory Filter */}
 
+        {/* 
         <div className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilter ? '' : 'hidden'} sm:block`}>
           <p className='mb-3 text-sm font-medium'>TYPE</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
@@ -117,6 +118,8 @@ const Collection = () => {
             </p>
           </div>
         </div>
+        */}
+
       </div>
 
       {/* Right Side */}
