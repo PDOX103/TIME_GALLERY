@@ -32,5 +32,5 @@ const CartTotal = () => {
     </div>
   )
 }
-
+//hello
 export default CartTotal
