@@ -6,15 +6,15 @@
   "scripts": {
     "start": "node index.js",
     "dev": "vite",
-    "build": "vite build",
     "serve": "vite preview",
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "build": "next build",
+  "postinstall": "npm rebuild bcrypt --build-from-source"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^2.5.0",
     "cookie-parser": "^1.4.6",
