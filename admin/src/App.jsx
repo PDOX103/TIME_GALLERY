@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import Dashboard from "./pages/Dashboard";
 
-export const backendUrl = 'http://localhost:4000'
+export const backendUrl = 'https://time-gallery-backend.vercel.app'
 export const currency = '৳'
 
 const App = () => {

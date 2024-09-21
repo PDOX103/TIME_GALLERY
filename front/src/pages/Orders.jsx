@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Orders = () => {
 
-  const backendUrl = 'http://localhost:4000'
+  const backendUrl = 'https://time-gallery-backend.vercel.app'
   const {token, currency} = useContext(ShopContext);
   const [orderData, setOrderData] = useState([])
 
