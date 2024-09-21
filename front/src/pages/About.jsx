@@ -12,7 +12,7 @@ const About = () => {
       <div className="my-10 flex flex-col md:flex-row gap-16">
         <img
           className="w-full md:max-w-[450px]"
-          src="https://the1916company.imgix.net/cms/05_01_24_1916_value_Desktop_6d383143c6.jpg"
+          src="https://cdn.dribbble.com/users/1894205/screenshots/7153177/media/47fde32ba6007c128e3636ee9d36531b.gif"
           alt=""
         />
 
