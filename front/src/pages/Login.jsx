@@ -7,7 +7,7 @@ const Login = () => {
 
   const [currentState, setCurrentState] = useState('Login');
   const {token, setToken, navigate} = useContext(ShopContext);
-  const backendUrl = 'http://localhost:4000'
+  const backendUrl = 'https://time-gallery-backend.vercel.app'
 
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')

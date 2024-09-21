@@ -9,7 +9,7 @@ import { toast } from 'react-toastify'
 const PlaceOrder = () => {
 
   const [method, setMethod] = useState('cod');
-  const backendUrl = 'http://localhost:4000'
+  const backendUrl = 'https://time-gallery-backend.vercel.app'
   const {navigate, token, cartItems, setCartItems, getCartAmount, delivery_fee, products} = useContext(ShopContext);
   const [formData, setFormData] = useState({
     firstName:'',
