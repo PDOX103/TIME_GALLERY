@@ -12,7 +12,7 @@ const Contact = () => {
       <div className="my-10 flex flex-col justify-center md:flex-row gap-10 mb-28">
         <img
           className="w-full md:max-w-[480px]"
-          src="https://mms.businesswire.com/media/20131112005529/en/391684/5/KC_DIAMOND-COLL.jpg?download=1&_gl=1*1x9hrw9*_gcl_au*NTM1MDE2Njg0LjE3MjY4NDM4MTE.*_ga*MTI1MjcxMjEyNS4xNzI2ODQzODEx*_ga_ZQWF70T3FK*MTcyNjg0MzgxMC4xLjAuMTcyNjg0MzgxMi41OC4wLjA."
+          src="https://cdn.dribbble.com/users/524179/screenshots/4776298/media/dba94641dadc0ba9ff87722ba33cd7ef.gif"
           alt=""
         />
 
