@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import Dashboard from "./pages/Dashboard";
 
-export const backendUrl = 'https://time-gallery-backend.vercel.app'
+export const backendUrl = 'http://localhost:4000'
 export const currency = '৳'
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
   },[token])
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-green-100 min-h-screen">
       <ToastContainer />
       {token === "" ? (
         <Login setToken={setToken} />
